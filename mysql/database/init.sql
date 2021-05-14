@@ -1,0 +1,17 @@
+create SCHEMA DB_PFA;
+
+create TABLE DB_PFA.TB_SUBJECTS (
+                                    CO_SUBJECT BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                    DS_SUBJECT VARCHAR(255),
+                                    NU_HRS NUMERIC
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO DB_PFA.TB_SUBJECTS (CO_SUBJECT, DS_SUBJECT, NU_HRS) VALUES (1, 'Docker', 12);
+INSERT INTO DB_PFA.TB_SUBJECTS (CO_SUBJECT, DS_SUBJECT, NU_HRS) VALUES (2, 'Fundamentos de Arquitetura de Software', 20);
+INSERT INTO DB_PFA.TB_SUBJECTS (CO_SUBJECT, DS_SUBJECT, NU_HRS) VALUES (3, 'Comunicação', 10);
+INSERT INTO DB_PFA.TB_SUBJECTS (CO_SUBJECT, DS_SUBJECT, NU_HRS) VALUES (4, 'RabbitMQ', 15);
+INSERT INTO DB_PFA.TB_SUBJECTS (CO_SUBJECT, DS_SUBJECT, NU_HRS) VALUES (5, 'Autenticação Keycloak', 8);
+INSERT INTO DB_PFA.TB_SUBJECTS (CO_SUBJECT, DS_SUBJECT, NU_HRS) VALUES (6, 'Domain Drive Design e Arquitetura hexagonal', 30);
+INSERT INTO DB_PFA.TB_SUBJECTS (CO_SUBJECT, DS_SUBJECT, NU_HRS) VALUES (7, 'Arquitetura do projeto prático', 15);
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';

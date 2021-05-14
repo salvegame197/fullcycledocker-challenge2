@@ -1,0 +1,42 @@
+version: '3'
+services:
+  mysql:
+    container_name: mysqlcontainer
+    image: mysql/mysql-server:8.0.24-1.2.2-server
+    environment:
+      MYSQL_ROOT_PASSWORD: roott
+      MYSQL_NATIVE_PASSWORD: roott
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - ./mysql/dbdata:/var/lib/mysql
+      - ./mysql/database:/docker-entrypoint-initdb.d
+    networks:
+      - app-db
+    restart: always
+  node:
+    container_name: node
+    build:
+      context: app
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+    networks:
+      - app-db
+      - app-proxy
+  nginx:
+    container_name: nginx
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    restart: on-failure
+    depends_on:
+      - node
+    networks:
+      - app-proxy
+networks:
+  app-db:
+    driver: bridge
+  app-proxy:
+    driver: bridge
