@@ -1,4 +1,4 @@
-# fullcycledocker-challenge1
+# fullcycledocker-challenge2
 
 ### (Full Cycle 2.0)
 
@@ -31,9 +31,11 @@ Suba tudo em um repositório e faça a entrega.
 ```
 # run it on a Linux or WSL, you need docker installed and configured
 
-docker run --rm salvegame/codeeducation
+Clone the project repository > git clone https://github.com/salvegame197/fullcycledocker-challenge2.git
+then on folder open terminal then > docker-compose up -d
 
-# now you can see
+
+# now you can see on http://localhost:8080
 ```
 
 # :closed_book: License
